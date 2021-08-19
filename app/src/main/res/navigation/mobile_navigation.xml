@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.epizy.muztahiddurjoy.assignmentadminapp.ui.home.HomeFragment"
+        android:label="Upload an Assignment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.epizy.muztahiddurjoy.assignmentadminapp.ui.gallery.GalleryFragment"
+        android:label="Check Assignments"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.epizy.muztahiddurjoy.assignmentadminapp.ui.slideshow.SlideshowFragment"
+        android:label="Publish a Notice"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nac_account_request"
+        android:name="com.epizy.muztahiddurjoy.assignmentadminapp.AccountRequestFragment"
+        android:label="Account Requests"
+        tools:layout="@layout/fragment_account_request"/>
+    <fragment
+        android:id="@+id/nav_reports"
+        android:name="com.epizy.muztahiddurjoy.assignmentadminapp.support_message"
+        android:label="Help Messages"
+        tools:layout="@layout/fragment_support_message"/>
+</navigation>
