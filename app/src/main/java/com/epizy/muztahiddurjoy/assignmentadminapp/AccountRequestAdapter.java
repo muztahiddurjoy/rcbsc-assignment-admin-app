@@ -76,10 +76,26 @@ public class AccountRequestAdapter extends RecyclerView.Adapter<AccountReqViewHo
                         }
                     });
             dialog.show();
-            Toast.makeText(context, "Kaam hua", Toast.LENGTH_SHORT).show();
         });
         holder.reject.setOnClickListener((v)->{
+            final AlertDialog.Builder dia = new AlertDialog.Builder(context);
+            dia.setTitle("Are you sure?");
+            dia.setMessage("Are you sure that you want reject the request");
+            dia.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    reference.child(keys.get(position)).setValue(null).addOnSuccessListener((s)->{
+                        Toast.makeText(context, "Request Rejected", Toast.LENGTH_SHORT).show();
+                    });
+                }
+            });
+            dia.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
 
+                }
+            });
+            dia.show();
         });
     }
     @Override

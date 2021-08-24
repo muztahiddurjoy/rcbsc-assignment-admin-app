@@ -40,11 +40,30 @@
             android:layout_height="wrap_content"
             android:id="@+id/description_report"/>
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/support_image"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Download Image"
+            android:id="@+id/download_image_btn"
+            />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Copy email address"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:text="Copy email"
         android:id="@+id/copy_email_btn"
         />
+    </LinearLayout>
 </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

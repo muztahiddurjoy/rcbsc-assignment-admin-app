@@ -3,10 +3,12 @@ package com.epizy.muztahiddurjoy.assignmentadminapp.Datasets;
 public class SupportDataset {
     String email;
     String description;
+    String imageurl;
 
-    public SupportDataset(String email, String description) {
+    public SupportDataset(String email, String description, String imageurl) {
         this.email = email;
         this.description = description;
+        this.imageurl = imageurl;
     }
 
     public SupportDataset() {
@@ -26,5 +28,13 @@ public class SupportDataset {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 }

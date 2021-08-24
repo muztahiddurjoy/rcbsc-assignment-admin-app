@@ -3,6 +3,8 @@ package com.epizy.muztahiddurjoy.assignmentadminapp;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.epizy.muztahiddurjoy.assignmentadminapp.Datasets.SupportDataset;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -99,6 +102,7 @@ public class support_message extends Fragment {
             protected void onBindViewHolder(@NonNull @NotNull ReportViewHolder holder, int position, @NonNull @NotNull SupportDataset model) {
                 holder.email.setText(model.getEmail());
                 holder.description.setText(model.getDescription());
+                Glide.with(getActivity()).load(model.getImageurl());
                 holder.copybtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -107,6 +111,10 @@ public class support_message extends Fragment {
                         clipboard.setPrimaryClip(clip);
                         Toast.makeText(getActivity(), "Email copied!", Toast.LENGTH_SHORT).show();
                     }
+                });
+                holder.downloadImage.setOnClickListener((v)->{
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getImageurl()));
+                    startActivity(intent);
                 });
             }
 
