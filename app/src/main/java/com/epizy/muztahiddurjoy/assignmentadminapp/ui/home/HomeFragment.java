@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
                 String subjectT = subject.getText().toString();
                 String classT = cleass.getText().toString();
                 String submitionT = submission_date.getText().toString();
-                if (titleT!=null||subjectT!=null||classT!=null||submitionT!=null){
+                if (!titleT.isEmpty() ||!subjectT.isEmpty()||!classT.isEmpty()||!submitionT.isEmpty()){
                     String date = new Date().toLocaleString();
                     assignmentDataset = new AssignmentDataset(titleT,submitionT,date,classT,subjectT);
                     reference.push().setValue(assignmentDataset).addOnCompleteListener(new OnCompleteListener<Void>() {

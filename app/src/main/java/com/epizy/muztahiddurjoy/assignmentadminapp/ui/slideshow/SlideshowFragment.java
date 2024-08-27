@@ -66,21 +66,26 @@ public class SlideshowFragment extends Fragment {
                 String desc = des.getText().toString();
                 String cleas = cleass.getText().toString();
                 dataset = new NoticeDataset(title,desc,cleas,new Date().toLocaleString());
-                reference.push().setValue(dataset).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        sendNoticeNotification();
-                        tite.setText("");
-                        des.setText("");
-                        cleass.setText("");
-                        Snackbar.make(v,"Notice Uploaded Successfully", BaseTransientBottomBar.LENGTH_LONG).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull @NotNull Exception e) {
-                        Snackbar.make(v,e.getMessage(),BaseTransientBottomBar.LENGTH_LONG).show();
-                    }
-                });
+                if (!title.isEmpty() || !desc.isEmpty() || !cleas.isEmpty()) {
+                    reference.push().setValue(dataset).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            sendNoticeNotification();
+                            tite.setText("");
+                            des.setText("");
+                            cleass.setText("");
+                            Snackbar.make(v, "Notice Uploaded Successfully", BaseTransientBottomBar.LENGTH_LONG).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull @NotNull Exception e) {
+                            Snackbar.make(v, e.getMessage(), BaseTransientBottomBar.LENGTH_LONG).show();
+                        }
+                    });
+                }
+                else {
+                    Toast.makeText(getActivity(), "Please fill all of the fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return root;

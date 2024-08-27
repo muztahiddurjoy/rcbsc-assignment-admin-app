@@ -24,6 +24,9 @@
             android:id="@+id/nav_reports"
             android:icon="@drawable/ic_support"
             android:title="Help Messages"/>
-
+        <item
+            android:id="@+id/nav_onlineclass"
+            android:icon="@drawable/ic_baseline_book_24"
+            android:title="Online class"/>
     </group>
 </menu>
